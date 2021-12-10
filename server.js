@@ -4,6 +4,8 @@ const app = express();
 const cors = require("cors");
 require('dotenv').config();
 
+const PORT = process.env.PORT;
+
 // middleware =====
 app.use(express.json());
 app.use(cors());
@@ -32,8 +34,8 @@ transporter.verify((err, success) => {
 // test get route 
 
 app.get('/', function (req, res) {
-  res.send("hello world")
-})
+  res.send("hello world");
+});
 
 
 // send email through transporter  using post route=====
@@ -60,7 +62,6 @@ app.post("/send", function (req, res) {
     });
    });
 
-const port = 3001;
-app.listen(port, () => {
-    console.log('Server is running on port:', port);
+app.listen(PORT, () => {
+    console.log('Server is running on port:', PORT);
 })
