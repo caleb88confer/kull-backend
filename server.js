@@ -29,6 +29,12 @@ transporter.verify((err, success) => {
         : console.log(`=== Server is ready to take messages: ${success} ===`);
 });
 
+// test get route 
+
+app.get('/', function (req, res) {
+  res.send("hello world")
+})
+
 
 // send email through transporter  using post route=====
 app.post("/send", function (req, res) {
